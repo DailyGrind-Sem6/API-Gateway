@@ -10,6 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<KafkaProducer>();
+builder.Services.AddScoped<KafkaConsumer>();
 
 var app = builder.Build();
 
