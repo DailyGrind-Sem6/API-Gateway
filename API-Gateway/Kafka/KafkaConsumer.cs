@@ -1,49 +1,64 @@
 ﻿using Confluent.Kafka;
+using Microsoft.Extensions.Hosting;
+using System.Threading;
+using System.Threading.Tasks;
 
-namespace API_Gateway.Kafka;
-
-public class KafkaConsumer
+namespace API_Gateway.Kafka
 {
-    private readonly ILogger<KafkaConsumer> _logger;
-    private IConsumer<Ignore, string> _consumer;
-    public KafkaConsumer(ILogger<KafkaConsumer> logger)
+    public class KafkaConsumer : IHostedService
     {
-        _logger = logger;
-        var config = new ConsumerConfig()
-        {
-            BootstrapServers = "localhost:29092",
-        };
-        _consumer = new ConsumerBuilder<Ignore, string>(config).Build();
-    }
-    
-    protected async Task ExecuteAsync(CancellationToken stoppingToken)
-    {
-        _consumer.Subscribe("InventoryUpdates");
+        private readonly ILogger<KafkaConsumer> _logger;
+        private IConsumer<Ignore, string> _consumer;
 
-        while (!stoppingToken.IsCancellationRequested)
+        public KafkaConsumer(ILogger<KafkaConsumer> logger)
         {
-            ProcessKafkaMessage(stoppingToken);
-
-            await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
+            _logger = logger;
+            _logger.LogInformation("Initializing consumer...");
+            var config = new ConsumerConfig()
+            {
+                BootstrapServers = "localhost:29092",
+                GroupId = "PostServiceGroup"
+            };
+            _consumer = new ConsumerBuilder<Ignore, string>(config).Build();
+            _logger.LogInformation("Initialized consumer...");
         }
 
-        _consumer.Close();
-    }
-
-    public void ProcessKafkaMessage(CancellationToken stoppingToken)
-    {
-        try
+        public Task StartAsync(CancellationToken cancellationToken)
         {
-            var consumeResult = _consumer.Consume(stoppingToken);
+            _consumer.Subscribe("Posts");
+            _logger.LogInformation("Subscribed to Posts...");
 
-            var message = consumeResult.Message.Value;
+            Task.Run(() =>
+            {
+                while (!cancellationToken.IsCancellationRequested)
+                {
+                    try
+                    {
+                        var consumeResult = _consumer.Consume(cancellationToken);
 
-            _logger.LogInformation($"Received message: {message}");
+                        var message = consumeResult.Message.Value;
+
+                        _logger.LogInformation($"Received message: {message}");
+                    }
+                    catch (OperationCanceledException ex)
+                    {
+                        _logger.LogError($"Operation was cancelled: {ex.Message}");
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError($"Error processing Kafka message: {ex.Message}");
+                    }
+                }
+            });
+
+            return Task.CompletedTask;
         }
-        catch (Exception ex)
+
+        public Task StopAsync(CancellationToken cancellationToken)
         {
-            _logger.LogError($"Error processing Kafka message: {ex.Message}");
+            _logger.LogInformation("Closing consumer...");
+            _consumer.Close();
+            return Task.CompletedTask;
         }
     }
-    
 }

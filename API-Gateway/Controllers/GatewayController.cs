@@ -1,3 +1,4 @@
+using System.Net;
 using API_Gateway.Kafka;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,6 +22,12 @@ namespace API_Gateway.Controllers
         {
             await _producer.SendMessage("bzbz");
             return Ok("bzbz");
+        }
+
+        [HttpGet("sample-text")]
+        public IActionResult SampleText()
+        {
+            return Ok("Gang");
         }
     }
 }

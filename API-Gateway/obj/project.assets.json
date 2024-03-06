@@ -2493,11 +2493,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gokay\\Documents\\School\\Sem 6\\Individueel\\API-Gateway\\API-Gateway\\API-Gateway.csproj",
+      "projectUniqueName": "D:\\School\\Sem 6\\Individueel\\API-Gateway\\API-Gateway\\API-Gateway.csproj",
       "projectName": "API-Gateway",
-      "projectPath": "C:\\Users\\gokay\\Documents\\School\\Sem 6\\Individueel\\API-Gateway\\API-Gateway\\API-Gateway.csproj",
+      "projectPath": "D:\\School\\Sem 6\\Individueel\\API-Gateway\\API-Gateway\\API-Gateway.csproj",
       "packagesPath": "C:\\Users\\gokay\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gokay\\Documents\\School\\Sem 6\\Individueel\\API-Gateway\\API-Gateway\\obj\\",
+      "outputPath": "D:\\School\\Sem 6\\Individueel\\API-Gateway\\API-Gateway\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gokay\\AppData\\Roaming\\NuGet\\NuGet.Config",
