@@ -17,17 +17,17 @@ namespace API_Gateway.Controllers
             _producer = producer;
         }
 
-        [HttpGet(Name = "GetSampleText")]
-        public async Task<IActionResult> Get()
+        [HttpGet("Message/Send")]
+        public async Task<IActionResult> SendMessage()
         {
             await _producer.SendMessage("bzbz");
             return Ok("bzbz");
         }
 
-        [HttpGet("sample-text")]
+        [HttpGet("Message/Sample")]
         public IActionResult SampleText()
         {
-            return Ok("Gang");
+            return Ok("gang");
         }
     }
 }
