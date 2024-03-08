@@ -1,6 +1,8 @@
 using System.Net;
+using System.Threading.Tasks;
 using API_Gateway.Kafka;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace API_Gateway.Controllers
 {

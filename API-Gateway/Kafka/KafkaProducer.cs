@@ -1,4 +1,6 @@
-﻿using Confluent.Kafka;
+﻿using System.Threading.Tasks;
+using Confluent.Kafka;
+using Microsoft.Extensions.Logging;
 
 namespace API_Gateway.Kafka
 {
