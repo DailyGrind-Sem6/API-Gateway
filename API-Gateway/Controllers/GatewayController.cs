@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 namespace API_Gateway.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("/api/[controller]")]
     public class GatewayController : ControllerBase
     {
         private readonly ILogger<GatewayController> _logger;
@@ -18,18 +18,19 @@ namespace API_Gateway.Controllers
             _logger = logger;
             _producer = producer;
         }
+        
+        [HttpGet]
+        public IActionResult Index()
+        {
+            _logger.LogInformation("RECEIVED REQUEST TO GATEWAY");
+            return Ok("Hello");
+        }
 
-        [HttpGet("Message/Send")]
+        /*[HttpGet("Message/Send")]
         public async Task<IActionResult> SendMessage()
         {
             await _producer.SendMessage("bzbz");
             return Ok("bzbz");
-        }
-
-        [HttpGet("Message/Sample")]
-        public IActionResult SampleText()
-        {
-            return Ok("gang");
-        }
+        }*/
     }
 }
