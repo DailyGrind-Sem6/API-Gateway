@@ -19,6 +19,7 @@ builder.Services.AddScoped<KafkaProducer>();
 // builder.Services.AddHostedService<KafkaConsumer>();
 builder.Services.AddOcelot(builder.Configuration);
 
+builder.Services.AddCors();
 
 var app = builder.Build();
 
@@ -28,6 +29,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
 app.UseHttpsRedirection();
 
