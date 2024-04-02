@@ -4,7 +4,11 @@
       "UpstreamPathTemplate": "/api/posts",
       "UpstreamHttpMethod": [ "Get" ],
       "DownstreamHostAndPorts": [ { "Host": "post-service", "Port": 8081 } ],
-      "DownstreamPathTemplate": "/api/posts"
+      "DownstreamPathTemplate": "/api/posts",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": ["read:posts"]
+      }
     },
     {
       "UpstreamPathTemplate": "/api/posts/{id}",
