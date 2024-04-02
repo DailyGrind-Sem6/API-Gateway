@@ -1,4 +1,9 @@
+using System.Security.Claims;
+using API_Gateway.Auth0;
 using API_Gateway.Kafka;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.IdentityModel.Tokens;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
@@ -14,6 +19,31 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.Authority = $"https://{builder.Configuration["Auth0:Domain"]}/";
+        options.Audience = builder.Configuration["Auth0:Audience"];
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            NameClaimType = ClaimTypes.NameIdentifier
+        };
+    });
+
+var domain = $"https://{builder.Configuration["Auth0:Domain"]}/";
+builder.Services
+    .AddAuthorization(options =>
+    {
+        options.AddPolicy(
+            "read:posts",
+            policy => policy.Requirements.Add(
+                new HasScopeRequirement("read:posts", domain)
+            )
+        );
+    });
+
+builder.Services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
 
 builder.Services.AddScoped<KafkaProducer>();
 // builder.Services.AddHostedService<KafkaConsumer>();
@@ -38,6 +68,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.UseOcelot().Wait();
+//app.UseOcelot().Wait();
 
 app.Run();
