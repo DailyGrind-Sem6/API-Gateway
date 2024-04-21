@@ -29,14 +29,9 @@ builder.Services.AddAuthentication(sharedOptions =>
     {
         options.Authority = $"https://{builder.Configuration["Auth0:Domain"]}/";
         options.Audience = builder.Configuration["Auth0:Audience"];
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            NameClaimType = ClaimTypes.NameIdentifier
-        };
     });
 
-// Configure Authorization
-/*var domain = $"https://{builder.Configuration["Auth0:Domain"]}/";
+var domain = $"https://{builder.Configuration["Auth0:Domain"]}/";
 builder.Services
     .AddAuthorization(options =>
     {
@@ -46,7 +41,7 @@ builder.Services
                 new HasScopeRequirement("read:posts", domain)
             )
         );
-    });*/
+    });
 
 
 // Add Ocelot and Kafka services
@@ -68,6 +63,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.UseOcelot().Wait();
