@@ -1,6 +1,7 @@
 using System.Net;
 using System.Threading.Tasks;
 using API_Gateway.Kafka;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
