@@ -6,9 +6,8 @@ on:
   workflow_dispatch:
 
 env:
-  DEPLOYMENT_MANIFEST_PATH: |
-    ./Manifest/api-gateway-deployment.yaml
-    ./Manifest/api-gateway-service.yaml
+  DEPLOYMENT_MANIFEST_PATH: ./Manifest/api-gateway-deployment.yaml
+  SERVICE_MANIFEST_PATH: ./Manifest/api-gateway-service.yaml
 
 jobs:
   deploy:
@@ -17,5 +16,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Apply Kubernetes manifests
+      - name: Apply Deployment manifest
         run: sudo k3s kubectl apply -f ${{ env.DEPLOYMENT_MANIFEST_PATH }}
+
+      - name: Apply Service manifest
+        run: sudo k3s kubectl apply -f ${{ env.SERVICE_MANIFEST_PATH }}
