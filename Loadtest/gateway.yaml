@@ -1,8 +1,8 @@
 config:
   target: 'https://ubuntu-server-2204.tail79a24.ts.net/api'
   phases:
-    - duration: 20
-      arrivalRate: 20
+    - duration: 300
+      arrivalRate: 30
   ensure:
     maxErrorRate: 1
     max: 500
