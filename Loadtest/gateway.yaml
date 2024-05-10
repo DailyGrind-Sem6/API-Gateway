@@ -1,5 +1,5 @@
 config:
-  target: 'http://127.0.0.1:52568/api'
+  target: 'https://ubuntu-server-2204.tail79a24.ts.net/api'
   phases:
     - duration: 20
       arrivalRate: 20
