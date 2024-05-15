@@ -6,15 +6,15 @@ on:
       - dev
  
 jobs:
-  automated-api-tests:
+  artillery:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Install Postman CLI
-        run: |
-          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
-      - name: Login to Postman CLI
-        run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
-      - name: Run API tests
-        run: |
-          postman collection run "13020936-b99c2c1e-5bcd-4d52-86dc-cad848262522"
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Execute load tests
+        uses: artilleryio/action-cli@v1
+        with:
+          command: run ./Loadtest/gateway.yaml --record
+        env:
+          ARTILLERY_CLOUD_API_KEY: ${{ secrets.ARTILLERY_CLOUD_KEY }}
