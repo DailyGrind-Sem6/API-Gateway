@@ -17,3 +17,5 @@ jobs:
         uses: artilleryio/action-cli@v1
         with:
           command: run Loadtest/gateway.yaml
+        env:
+          ARTILLERY_CLOUD_API_KEY: ${{ secrets.ARTILLERY_CLOUD_KEY }}
