@@ -1,5 +1,5 @@
 config:
-  target: 'http://192.168.144.10:8080/api'
+  target: 'https://desktop-gp441j7.tail79a24.ts.net/api'
   phases:
     - duration: 60
       arrivalRate: 30
