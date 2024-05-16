@@ -12,9 +12,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Execute load tests
-        uses: artilleryio/action-cli@v1
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          command: run ./Loadtest/gateway.yaml --record
+          node-version: '14'
+
+      - name: Install Artillery
+        run: npm install -g artillery
+
+      - name: Execute load tests
+        run: artillery run ./Loadtest/gateway.yaml --record
         env:
           ARTILLERY_CLOUD_API_KEY: ${{ secrets.ARTILLERY_CLOUD_KEY }}
