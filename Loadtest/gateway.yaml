@@ -6,6 +6,11 @@ config:
   ensure:
     maxErrorRate: 1
     max: 500
+  defaults:
+    headers:
+      Content-Type: application/json
+    http:
+      timeout: 10000
  
 scenarios:
   - name: 'Get a list of posts'
