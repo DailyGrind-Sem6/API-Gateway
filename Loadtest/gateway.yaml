@@ -1,5 +1,5 @@
 config:
-  target: 'http://192.168.144.10:8080/api'
+  target: 'https://4e83-82-174-102-236.ngrok-free.app/api'
   phases:
     - duration: 60
       arrivalRate: 30
