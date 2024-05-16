@@ -1,5 +1,5 @@
 config:
-  target: 'https://4e83-82-174-102-236.ngrok-free.app/api'
+  target: 'https://ubuntu-server-2204-1.tail79a24.ts.net/api'
   phases:
     - duration: 60
       arrivalRate: 30
