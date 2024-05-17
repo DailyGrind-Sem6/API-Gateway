@@ -1,8 +1,8 @@
 config:
-  target: 'https://ubuntu-server-2204-1.tail79a24.ts.net/api'
+  target: 'http://192.168.144.150:8080/api'
   phases:
-    - duration: 60
-      arrivalRate: 30
+    - duration: 30
+      arrivalRate: 5
   ensure:
     maxErrorRate: 1
     max: 500
@@ -11,7 +11,6 @@ config:
       Content-Type: application/json
     http:
       timeout: 10000
- 
 scenarios:
   - name: 'Get a list of posts'
     flow:
