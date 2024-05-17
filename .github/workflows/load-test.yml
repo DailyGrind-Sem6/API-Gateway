@@ -15,17 +15,12 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'  # specify the node version you need
+          node-version: '14'
 
       - name: Install Artillery
         run: npm install -g artillery
 
       - name: Execute load tests
-        run: artillery run ./Loadtest/gateway.yaml --record --output ./artillery-report.json --verbose
+        run: artillery run ./Loadtest/gateway.yaml --record
         env:
           ARTILLERY_CLOUD_API_KEY: ${{ secrets.ARTILLERY_CLOUD_KEY }}
-      - name: Upload Artillery Report
-        uses: actions/upload-artifact@v2
-        with:
-          name: artillery-report
-          path: ./artillery-report.json
