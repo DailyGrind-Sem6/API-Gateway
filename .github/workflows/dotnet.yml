@@ -4,6 +4,10 @@ on:
   push:
     branches: [ "dev" ]
 
+env:
+  DEPLOYMENT_MANIFEST_PATH: ./Manifest/api-gateway-deployment.yaml
+  SERVICE_MANIFEST_PATH: ./Manifest/api-gateway-service.yaml
+
 jobs:
   build:
     runs-on: ubuntu-latest
