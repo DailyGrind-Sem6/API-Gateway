@@ -9,7 +9,6 @@ metadata:
     io.kompose.service: api-gateway
   name: api-gateway
 spec:
-  replicas: 1
   selector:
     matchLabels:
       io.kompose.service: api-gateway
@@ -29,6 +28,9 @@ spec:
           name: api-gateway
           ports:
             - containerPort: 8080
-          resources: {}
+          resources:
+            limits:
+                cpu: "1000m"
+                memory: "1000Mi"
       restartPolicy: Always
 status: {}
