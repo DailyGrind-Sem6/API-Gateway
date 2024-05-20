@@ -57,6 +57,7 @@ jobs:
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
 
   deploy_to_Azure:
+      name: Deploy app to Azure
       permissions:
           actions: read
           contents: read
