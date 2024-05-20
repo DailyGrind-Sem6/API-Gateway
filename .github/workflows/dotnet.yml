@@ -10,6 +10,7 @@ env:
 
 jobs:
   build:
+    name: Build and test app
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -53,6 +54,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
   deploy_to_Netlab:
+    name: Deploy app to Netlab
     runs-on: self-hosted
     steps:
       - name: Checkout repository
@@ -65,6 +67,7 @@ jobs:
         run: sudo k3s kubectl apply -f ${{ env.SERVICE_MANIFEST_PATH }}
 
   artillery:
+    name: Loadtest with Artillery.io
     runs-on: self-hosted
     steps:
       - name: Checkout repository
