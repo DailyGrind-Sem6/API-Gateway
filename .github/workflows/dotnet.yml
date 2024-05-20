@@ -2,15 +2,16 @@ name: Build .NET APP
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main", "dev" ]
+    branches: [ "dev" ]
+
+env:
+  DEPLOYMENT_MANIFEST_PATH: ./Manifest/api-gateway-deployment.yaml
+  SERVICE_MANIFEST_PATH: ./Manifest/api-gateway-service.yaml
 
 jobs:
   build:
-
+    name: Build and test app
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
@@ -23,3 +24,67 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+      
+  push_to_Dockerhub:
+    name: Push Docker image to Docker Hub
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        with:
+          images: tendeza/sem6-api-gateway
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        with:
+          context: .
+          file: ./API-Gateway/Dockerfile
+          push: true
+          tags: tendeza/sem6-api-gateway:latest
+          labels: ${{ steps.meta.outputs.labels }}
+
+  deploy_to_Netlab:
+    name: Deploy app to Netlab
+    runs-on: self-hosted
+    needs: push_to_Dockerhub
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Apply Deployment manifest
+        run: sudo k3s kubectl apply -f ${{ env.DEPLOYMENT_MANIFEST_PATH }}
+
+      - name: Apply Service manifest
+        run: sudo k3s kubectl apply -f ${{ env.SERVICE_MANIFEST_PATH }}
+
+  artillery:
+    name: Loadtest with Artillery.io
+    runs-on: self-hosted
+    needs: deploy_to_Netlab
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Artillery
+        run: npm install -g artillery
+
+      - name: Execute load tests
+        run: artillery run ./Loadtest/gateway.yaml --record
+        env:
+          ARTILLERY_CLOUD_API_KEY: ${{ secrets.ARTILLERY_CLOUD_KEY }}
