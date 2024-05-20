@@ -63,3 +63,22 @@ jobs:
 
       - name: Apply Service manifest
         run: sudo k3s kubectl apply -f ${{ env.SERVICE_MANIFEST_PATH }}
+
+  artillery:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Artillery
+        run: npm install -g artillery
+
+      - name: Execute load tests
+        run: artillery run ./Loadtest/gateway.yaml --record
+        env:
+          ARTILLERY_CLOUD_API_KEY: ${{ secrets.ARTILLERY_CLOUD_KEY }}
