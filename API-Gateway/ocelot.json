@@ -1,20 +1,16 @@
 ﻿{
   "Routes": [
     {
-      "UpstreamPathTemplate": "/api/posts",
-      "UpstreamHttpMethod": [ "Get" ],
+      "UpstreamPathTemplate": "/api/posts/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "DownstreamHostAndPorts": [ { "Host": "post-service", "Port": 8081 } ],
-      "DownstreamPathTemplate": "/api/posts"
+      "DownstreamPathTemplate": "/api/posts/{everything}"
     },
     {
-      "UpstreamPathTemplate": "/api/posts/{id}",
-      "UpstreamHttpMethod": [ "Get", "POST" ],
-      "DownstreamHostAndPorts": [ { "Host": "post-service", "Port": 8081 } ],
-      "DownstreamPathTemplate": "/api/posts/{id}",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKeys": "Bearer",
-        "AllowedScopes": ["read:posts"]
-      }
+      "UpstreamPathTemplate": "/api/comments/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "DownstreamHostAndPorts": [ { "Host": "comment-service", "Port": 8082 } ],
+      "DownstreamPathTemplate": "/api/comments/{everything}"
     }
   ]
 }

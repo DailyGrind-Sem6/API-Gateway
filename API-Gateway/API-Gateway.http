@@ -1,6 +1,389 @@
-@API_Gateway_HostAddress = http://localhost:5082
+@API_Gateway_HostAddress = http://192.168.144.10:8080
 
-GET {{API_Gateway_HostAddress}}/weatherforecast/
-Accept: application/json
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "The Art of Espresso Making",
+  "Content": "Espresso making is an intricate process that requires attention to detail and precision. From selecting the right beans to mastering the perfect grind size, every step plays a crucial role in creating a delicious shot of espresso. In this guide, we'll delve into the art of espresso making and explore the techniques and tools needed to brew a perfect cup.",
+  "CreatedAt": "2024-04-09T08:00:00Z",
+  "UpdatedAt": "2024-04-09T08:00:00Z",
+  "UserId": "1"
+}
 
 ###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "Roasting 101: A Beginner's Guide to Coffee Roasting",
+  "Content": "Coffee roasting is the process of transforming green coffee beans into the aromatic and flavorful beans that we brew into our morning cup of coffee. In this beginner's guide to coffee roasting, we'll explore the basics of roasting, including different roasting methods, roasting profiles, and tips for achieving the perfect roast.",
+  "CreatedAt": "2024-04-08T10:00:00Z",
+  "UpdatedAt": "2024-04-08T10:00:00Z",
+  "UserId": "2"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "The Science Behind Coffee Brewing",
+  "Content": "Brewing coffee is not just an art, but also a science. Understanding the science behind coffee brewing can help you achieve consistency and perfection in every cup. From water temperature and extraction time to grind size and brew ratio, each variable impacts the flavor profile of your coffee. In this article, we'll explore the science behind coffee brewing and provide tips for mastering the brewing process.",
+  "CreatedAt": "2024-04-07T15:00:00Z",
+  "UpdatedAt": "2024-04-07T15:00:00Z",
+  "UserId": "3"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "Exploring Single-Origin Coffees",
+  "Content": "Single-origin coffees are prized for their unique flavor profiles that reflect the terroir of the region where they were grown. From fruity Ethiopian Yirgacheffes to earthy Sumatran Mandhelings, each coffee offers a distinctive taste experience. In this guide, we'll take a journey through the world of single-origin coffees, exploring different regions and the flavors they impart.",
+  "CreatedAt": "2024-04-06T12:00:00Z",
+  "UpdatedAt": "2024-04-06T12:00:00Z",
+  "UserId": "4"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "The Ultimate Guide to Cold Brew Coffee",
+  "Content": "Cold brew coffee is a refreshing and flavorful alternative to traditional hot coffee, especially during hot summer months. Made by steeping coarsely ground coffee beans in cold water for an extended period, cold brew coffee boasts a smooth and mellow flavor profile. In this ultimate guide to cold brew coffee, we'll cover everything from brewing methods and ratios to serving suggestions and flavor variations.",
+  "CreatedAt": "2024-04-05T09:00:00Z",
+  "UpdatedAt": "2024-04-05T09:00:00Z",
+  "UserId": "5"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "Mastering Pour Over Coffee",
+  "Content": "Pour over coffee is a simple yet elegant brewing method that allows you to fully control the brewing process, resulting in a clean and flavorful cup of coffee. In this comprehensive guide, we'll walk you through the steps to mastering pour over coffee, from selecting the right coffee beans to perfecting your pouring technique.",
+  "CreatedAt": "2024-04-04T11:00:00Z",
+  "UpdatedAt": "2024-04-04T11:00:00Z",
+  "UserId": "6"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "Decoding Coffee Labels: Understanding Coffee Certifications",
+  "Content": "Coffee labels can be confusing with all the different certifications and labels. From Fair Trade to Organic, understanding what these labels mean can help you make informed decisions about the coffee you buy. In this guide, we'll decode coffee labels and explain the significance of various certifications.",
+  "CreatedAt": "2024-04-03T14:00:00Z",
+  "UpdatedAt": "2024-04-03T14:00:00Z",
+  "UserId": "7"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "The History of Coffee: From Ancient Brews to Modern Roasts",
+  "Content": "Coffee has a rich and fascinating history that spans centuries and continents. From its mythical origins in ancient Ethiopia to its global dominance as one of the most consumed beverages today, coffee has played a significant role in shaping cultures and economies around the world. In this article, we'll explore the captivating history of coffee.",
+  "CreatedAt": "2024-04-02T17:00:00Z",
+  "UpdatedAt": "2024-04-02T17:00:00Z",
+  "UserId": "8"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "Coffee and Health: Separating Fact from Fiction",
+  "Content": "Coffee is often surrounded by conflicting health claims, with some praising its benefits and others warning about its potential risks. In this informative article, we'll sift through the scientific evidence to separate fact from fiction when it comes to coffee and health. Whether you're a coffee lover or skeptic, understanding the truth about coffee's effects on health is essential.",
+  "CreatedAt": "2024-04-01T20:00:00Z",
+  "UpdatedAt": "2024-04-01T20:00:00Z",
+  "UserId": "9"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "The Ritual of Coffee: Exploring Coffee Culture Around the World",
+  "Content": "Coffee is more than just a beverage; it's a cultural phenomenon that connects people from all walks of life. From bustling coffee shops in urban centers to traditional coffee ceremonies in remote villages, coffee culture varies widely around the world. In this exploration of coffee culture, we'll journey to different corners of the globe to uncover the rituals and traditions that surround coffee.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "10"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "The Aroma of Arabica: Exploring the World's Most Popular Coffee Bean",
+  "Content": "Arabica coffee is the most widely consumed coffee bean in the world, renowned for its smooth flavor and aromatic profile. In this article, we'll delve into the origins of Arabica coffee, its cultivation methods, and the unique characteristics that make it a favorite among coffee enthusiasts.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "11"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "From Bean to Cup: Understanding the Coffee Production Process",
+  "Content": "The journey from coffee bean to brewed cup is a complex and fascinating process involving multiple stages of cultivation, harvesting, processing, and roasting. In this comprehensive guide, we'll explore each step of the coffee production process, from the lush coffee farms where beans are grown to the bustling roasteries where they are transformed into aromatic delights.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "12"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "Coffee and Creativity: How Coffee Inspires Art and Innovation",
+  "Content": "Coffee has long been associated with creativity, serving as a muse for artists, writers, and innovators throughout history. In this article, we'll explore the ways in which coffee fuels creativity and inspires new ideas, from the coffee-fueled conversations of the Enlightenment era to the modern-day coffee shop as a hub for creative collaboration.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "13"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "The Future of Coffee: Trends and Innovations Shaping the Industry",
+  "Content": "As consumer tastes and preferences evolve, the coffee industry is constantly innovating to meet changing demands. In this article, we'll explore the latest trends and innovations shaping the future of coffee, from sustainable farming practices to high-tech brewing methods. Join us as we glimpse into the future of one of the world's most beloved beverages.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "14"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "Coffee and Climate Change: The Impact of Global Warming on Coffee Production",
+  "Content": "Climate change poses significant challenges to coffee production, affecting everything from crop yields to flavor profiles. In this article, we'll examine the impact of global warming on coffee-growing regions around the world and explore strategies for mitigating its effects. Join us as we delve into the complex relationship between coffee and climate change.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "15"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "The Zen of Coffee: Exploring the Mindfulness of Coffee Brewing",
+  "Content": "Brewing coffee can be more than just a daily ritual; it can also be an opportunity for mindfulness and meditation. In this article, we'll explore the zen of coffee brewing, from the slow pour of a Chemex to the precise grind of a hand grinder. Join us as we discover the calming influence of coffee on the mind and soul.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "16"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "The Art of Coffee Pairing: Exploring the Perfect Combinations",
+  "Content": "Pairing coffee with food is an art form that requires careful consideration of flavors, textures, and aromas. In this article, we'll explore the art of coffee pairing, from classic combinations like coffee and chocolate to unexpected pairings that will tantalize your taste buds. Join us as we discover the perfect marriage of coffee and cuisine.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "17"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "Coffee and Community: The Role of Coffee in Building Social Connections",
+  "Content": "Coffee has long served as a catalyst for social interaction, bringing people together to share stories, ideas, and laughter. In this article, we'll explore the role of coffee in building community, from the neighborhood coffee shop as a gathering place to the global coffee community connected by a shared love of the bean. Join us as we celebrate the power of coffee to connect people from all walks of life.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "18"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "The Art of Coffee Presentation: Elevating Your Home Brewing Experience",
+  "Content": "Brewing coffee at home is more than just a practical necessity; it's an opportunity to create a beautiful and memorable experience. In this article, we'll explore the art of coffee presentation, from stylish brewing equipment to creative serving ideas that will impress your guests. Join us as we elevate your home brewing experience to new heights of sophistication and style.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "19"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "The Cultural Impact of Coffee: From Cafes to Counterculture Movements",
+  "Content": "Coffee has played a central role in shaping culture and society throughout history, from the rise of coffeehouses as centers of intellectual exchange to the role of coffee in counterculture movements. In this article, we'll explore the cultural impact of coffee, tracing its influence on art, literature, politics, and more. Join us as we uncover the rich tapestry of coffee culture and its enduring legacy.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "20"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "The Magic of Coffee Chemistry: Unlocking Flavor and Aroma",
+  "Content": "Coffee's complex flavor profile is the result of a delicate interplay of chemical reactions that occur during roasting, brewing, and extraction. In this article, we'll explore the fascinating world of coffee chemistry, from the Maillard reaction to the role of acids and oils in creating the perfect cup. Join us as we unravel the mysteries behind coffee's captivating flavors and aromas.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "21"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "Coffee and Sustainability: Navigating the Ethical Landscape",
+  "Content": "As consumers become increasingly concerned about the environmental and social impact of their purchasing decisions, the coffee industry is facing growing pressure to adopt sustainable practices. In this article, we'll explore the complex landscape of coffee sustainability, from fair trade certifications to carbon-neutral roasting methods. Join us as we navigate the ethical challenges and opportunities facing the coffee industry.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "22"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "The Evolution of Coffee Culture: From Ancient Rituals to Modern Trends",
+  "Content": "Coffee culture has evolved dramatically over the centuries, from its origins in ancient rituals to its current status as a global phenomenon. In this article, we'll trace the evolution of coffee culture through history, exploring the rituals, traditions, and trends that have shaped our relationship with this beloved beverage. Join us as we journey through time to uncover the rich tapestry of coffee culture.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "23"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "The Rise of Specialty Coffee: Exploring the Third Wave Movement",
+  "Content": "The specialty coffee movement, also known as the third wave of coffee, has transformed the way we think about and consume coffee. In this article, we'll explore the origins of the third wave movement, its emphasis on quality and sustainability, and the impact it has had on the coffee industry as a whole. Join us as we delve into the world of specialty coffee and discover what sets it apart from the mainstream.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "24"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "The Art of Latte Art: Mastering the Perfect Pour",
+  "Content": "Latte art is more than just a decorative flourish; it's a testament to the skill and craftsmanship of the barista. In this article, we'll explore the art of latte art, from mastering the perfect microfoam to creating intricate designs that delight the senses. Join us as we delve into the world of latte art and discover the techniques behind this beloved coffee tradition.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "25"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "The Health Benefits of Coffee: Separating Fact from Fiction",
+  "Content": "Coffee is one of the most widely consumed beverages in the world, but its health effects have long been a topic of debate. In this article, we'll sift through the scientific evidence to separate fact from fiction when it comes to the health benefits of coffee. Join us as we explore the latest research on coffee and its potential impact on everything from heart health to cognitive function.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "26"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "The Coffeehouse Revolution: How Coffee Changed the World",
+  "Content": "The rise of the coffeehouse in the 17th century sparked a social and cultural revolution that transformed cities across Europe and beyond. In this article, we'll explore the impact of coffee on society, from its role as a meeting place for intellectuals and revolutionaries to its influence on the rise of modern capitalism. Join us as we uncover the hidden history of coffee and its enduring legacy.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "27"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "The Science of Coffee Addiction: Understanding the Brain's Response",
+  "Content": "Coffee is one of the most widely consumed psychoactive substances in the world, but what exactly makes it so addictive? In this article, we'll explore the science of coffee addiction, from the role of caffeine in stimulating the brain to the genetic factors that influence individual susceptibility. Join us as we unravel the mysteries of coffee addiction and discover what makes this humble beverage so irresistible.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "28"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "The Global Coffee Trade: From Farm to Cup",
+  "Content": "The global coffee trade is a complex web of relationships that connects coffee growers in remote regions with consumers around the world. In this article, we'll explore the journey of coffee from farm to cup, tracing its path through various stages of cultivation, processing, roasting, and distribution. Join us as we unravel the intricacies of the global coffee supply chain and discover the challenges and opportunities facing coffee producers and traders alike.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "29"
+}
+
+###
+
+POST {{API_Gateway_HostAddress}}/api/posts
+Content-Type: application/json
+
+{
+  "Title": "The Art of Coffee Cocktails: Mixing Up Your Caffeine Fix",
+  "Content": "Coffee cocktails offer a delicious and inventive way to enjoy your favorite caffeinated beverage. In this article, we'll explore the art of coffee cocktails, from classic recipes like the Espresso Martini to innovative creations that combine coffee with spirits, liqueurs, and other ingredients. Join us as we shake, stir, and pour our way through the world of coffee mixology.",
+  "CreatedAt": "2024-03-31T23:00:00Z",
+  "UpdatedAt": "2024-03-31T23:00:00Z",
+  "UserId": "30"
+}
