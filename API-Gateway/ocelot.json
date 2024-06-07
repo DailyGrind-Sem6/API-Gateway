@@ -2,15 +2,79 @@
   "Routes": [
     {
       "UpstreamPathTemplate": "/api/posts/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "UpstreamHttpMethod": [ "Get" ],
       "DownstreamHostAndPorts": [ { "Host": "post-service", "Port": 8081 } ],
-      "DownstreamPathTemplate": "/api/posts/{everything}"
+      "DownstreamPathTemplate": "/api/posts/{everything}",
+      "RateLimitOptions": {
+        "ClientWhitelist": [
+          "https://artillery.io"
+        ],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 60,
+        "Limit": 100
+      }
     },
     {
       "UpstreamPathTemplate": "/api/comments/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "UpstreamHttpMethod": [ "Get" ],
       "DownstreamHostAndPorts": [ { "Host": "comment-service", "Port": 8082 } ],
-      "DownstreamPathTemplate": "/api/comments/{everything}"
+      "DownstreamPathTemplate": "/api/comments/{everything}",
+      "RateLimitOptions": {
+        "ClientWhitelist": [
+          "https://artillery.io"
+        ],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 60,
+        "Limit": 100
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/posts/{everything}",
+      "UpstreamHttpMethod": [ "Post", "Put", "Delete" ],
+      "DownstreamHostAndPorts": [ { "Host": "post-service", "Port": 8081 } ],
+      "DownstreamPathTemplate": "/api/posts/{everything}",
+      "RateLimitOptions": {
+        "ClientWhitelist": [
+          "https://artillery.io"
+        ],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 60,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/comments/{everything}",
+      "UpstreamHttpMethod": [ "Post", "Put", "Delete" ],
+      "DownstreamHostAndPorts": [ { "Host": "comment-service", "Port": 8082 } ],
+      "DownstreamPathTemplate": "/api/comments/{everything}",
+      "RateLimitOptions": {
+        "ClientWhitelist": [
+          "https://artillery.io"
+        ],
+        "EnableRateLimiting": true,
+        "Period": "1s",
+        "PeriodTimespan": 60,
+        "Limit": 100
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     }
-  ]
+  ],
+    "GlobalConfiguration": {
+      "RateLimitOptions": {
+        "DisableRateLimitHeaders": false,
+        "QuotaExceededMessage": "Saddle down buckaroo! You've hit the rate limit! Please try again later.",
+        "HttpStatusCode": 429,
+        "ClientIdHeader": "ClientId"
+      }
+    }
 }
