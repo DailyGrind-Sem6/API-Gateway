@@ -31,19 +31,6 @@ builder.Services.AddAuthentication(sharedOptions =>
         options.Audience = builder.Configuration["Auth0:Audience"];
     });
 
-var domain = $"https://{builder.Configuration["Auth0:Domain"]}/";
-builder.Services
-    .AddAuthorization(options =>
-    {
-        options.AddPolicy(
-            "read:posts",
-            policy => policy.Requirements.Add(
-                new HasScopeRequirement("read:posts", domain)
-            )
-        );
-    });
-
-
 // Add Ocelot and Kafka services
 builder.Services.AddOcelot(builder.Configuration);
 builder.Services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();

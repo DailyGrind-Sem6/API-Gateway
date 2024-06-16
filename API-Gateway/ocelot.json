@@ -45,7 +45,7 @@
         "Limit": 100
       },
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
+        "AuthenticationProviderKeys": [ "Bearer" ],
         "AllowedScopes": []
       }
     },
@@ -64,7 +64,7 @@
         "Limit": 100
       },
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
+        "AuthenticationProviderKeys": [ "Bearer" ],
         "AllowedScopes": []
       }
     }
